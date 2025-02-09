@@ -1,0 +1,23 @@
+{
+  "users": [
+    {
+      "id": "ee47",
+      "name": "Роман",
+      "email": "1@gmail.com",
+      "password": "123"
+    },
+    {
+      "id": "bccb",
+      "name": "Артем",
+      "email": "2@gmail.com",
+      "password": "123"
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "title": "Hello World",
+      "content": "Пример поста"
+    }
+  ]
+}
