@@ -11,11 +11,17 @@
       "name": "Артем",
       "email": "2@gmail.com",
       "password": "123"
+    },
+    {
+      "id": "7d2f",
+      "name": "кира",
+      "email": "kiramol@gmail.com",
+      "password": "123"
     }
   ],
   "posts": [
     {
-      "id": 1,
+      "id": "1",
       "title": "Hello World",
       "content": "Пример поста"
     }

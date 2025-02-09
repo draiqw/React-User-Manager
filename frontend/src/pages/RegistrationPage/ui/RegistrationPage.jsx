@@ -1,7 +1,6 @@
-// src/components/RegistrationForm.jsx
 import React, { useState } from 'react';
-import { registerUser } from '../../services/api';
-import './Registration.css';
+import { registerUser } from '../../../services/ApiJSON';
+import './RegistrationPage.css';
 
 const RegistrationForm = () => {
   const [name, setName]         = useState('');

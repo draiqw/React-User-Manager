@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { getUsers } from '../../services/api';
+import { getUsers } from '../../../services/ApiJSON';
 
-const UsersList = () => {
+const UserListPage = () => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
@@ -22,4 +22,4 @@ const UsersList = () => {
   );
 };
 
-export default UsersList;
+export default UserListPage;

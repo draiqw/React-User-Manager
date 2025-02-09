@@ -26,15 +26,14 @@ export const loginUser = async (email, password) => {
 
 export const registerUser = async (name, email, password) => {
   try {
-    // Проверяем, существует ли уже пользователь с таким email
     const checkResponse = await axios.get(`${API_URL}/users?email=${email}`);
     if (checkResponse.data.length > 0) {
       return { success: false, message: 'Пользователь с таким email уже существует.' };
     }
 
-    // Создаём нового пользователя
     const newUser = { name, email, password };
     await axios.post(`${API_URL}/users`, newUser);
+
     return { success: true, message: 'Регистрация прошла успешно!' };
   } catch (error) {
     console.error('Ошибка регистрации:', error);

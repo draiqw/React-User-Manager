@@ -1,10 +1,8 @@
-// src/components/Authentication.jsx
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { loginUser } from '../../services/api';
-import './Authentication.css';
+import { loginUser } from '../../../services/ApiJSON';
 
-const Authentication = () => {
+const LoginPage = () => {
   const [email, setEmail]         = useState('');
   const [password, setPassword]   = useState('');
   const [message, setMessage]     = useState('');
@@ -59,4 +57,4 @@ const Authentication = () => {
   );
 };
 
-export default Authentication;
+export default LoginPage;
