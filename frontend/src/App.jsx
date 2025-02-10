@@ -1,5 +1,5 @@
 import React, { Suspense, lazy, useState, useEffect } from 'react';
-import { Routes, Route, Link, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { RegistrationPage } from './pages/RegistrationPage';
 import { LoginPage } from './pages/LoginPage';
 import { HomePage } from './pages/HomePage';
@@ -14,6 +14,14 @@ const App = () => {
     setLoading(false);
   }, []);
 
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     setLoading(false);
+  //   }, 2000);
+
+  //   return () => clearTimeout(timer);
+  // }, []);
+
   if (loading) {
     return <Loading />;
   }
@@ -21,9 +29,6 @@ const App = () => {
   return (
     <>
       <Suspense fallback={<Loading />}>
-        <nav>
-          <Link to="/register">Регистрация</Link> | <Link to="/login">Вход</Link>
-        </nav>
         <Routes>
           <Route path="/register" element={<RegistrationPage />} />
           <Route path="/login" element={<LoginPage />} />

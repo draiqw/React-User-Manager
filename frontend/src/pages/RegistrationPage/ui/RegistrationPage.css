@@ -1,0 +1,152 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+@font-face {
+    font-family: "AK";
+    src: url('../../../assets/Sansation_Light.ttf');
+}
+.body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    background-color: #C6C6C6;
+}
+
+.registration-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 42vw;
+    height: 50vh;
+    margin: 0;
+    padding: 0;
+    background-color: #D9D9D9;
+    border-radius: 35px;
+    box-shadow: 
+        10px 10px 10px rgba(0, 0, 0, 0.25), 
+        inset 10px 10px 10px rgba(255, 255, 255, 0.25);
+}
+
+.form-title {
+    font-size: 4.5vh;
+    margin-top: 0;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 3vh;
+    font-family: "AK";
+    color: #595959;
+}
+
+.form-group {
+    margin-bottom: 3vh;
+}
+
+.form-group input {
+    background-color: #E8E8E8;
+    width: 25vw;
+    height: 2vh;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    padding-left: 2vh;
+    padding-right: 2vh;
+    border: 0px;
+    border-radius: 2vh;
+    font-size: 1.5vh;
+    color: #595959; 
+    font-family: "AK";
+    box-shadow: 
+        5px 5px 5px rgba(0, 0, 0, 0.25), 
+        inset 5px 5px 5px rgba(255, 255, 255, 0.25);
+}
+
+.form-group input::placeholder {
+    color: #595959; 
+    font-family: "AK";
+    font-size: 1.5vh;
+}
+
+.form-group input:focus {
+    outline: none; 
+}
+
+.registration-form .form-control.is-invalid {
+    border-color: #dc3545; 
+    box-shadow: 
+        0 0 0 0.2rem rgba(220, 53, 69, 0.25), 
+        5px 5px 5px rgba(0, 0, 0, 0.25),
+        inset 5px 5px 5px rgba(255, 255, 255, 0.25);
+}
+
+.registration-form .invalid-feedback {
+    margin-top: 0.5vh;
+    margin-bottom: -1vh;
+    color: black;
+    font-size: 1vh;
+    font-family: "AK";
+    display: flex;
+    justify-content: center;
+}
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 24vw;
+}   
+.register-btn {
+    width: 15vw;
+    padding: 10px;
+    background-color: #E8E8E8;
+    font-size: 16px;
+    border: none;
+    border-radius: 2vh;
+    cursor: pointer;
+    transition: background 0.3s;
+    color: #595959; 
+    font-family: "AK";
+    font-size: 2.5vh;
+    box-shadow: 
+    5px 5px 5px rgba(0, 0, 0, 0.25), /* внешняя тень */
+    inset 5px 5px 5px rgba(255, 255, 255, 0.25);
+}
+
+.Hidden {
+    visibility: hidden;
+}
+.login-btn {
+    background-color: #D9D9D9;
+    border: none;
+    color: #595959; 
+    font-family: "AK";
+    font-size: 1.5vh;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+}
+
+.login-btn:hover {
+    color: black;
+}
+
+
+.register-btn:hover {
+    background-color: #595959;
+    color: #E8E8E8;
+}
+
+.custom-alert {
+    font-size: 2vh;
+    margin-top: 2vh;
+    font-family: "AK";
+    color: #595959; /* темно-синий текст */
+    padding: 20px;
+    border-radius: 8px;
+    transition: opacity 0.3s ease-in-out;
+  }

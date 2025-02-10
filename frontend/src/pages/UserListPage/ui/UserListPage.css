@@ -1,0 +1,62 @@
+/* Общий контейнер страницы */
+.user-list-page {
+  padding: 20px;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+  font-family: "AK", sans-serif;
+}
+
+/* Заголовок страницы */
+.page-title {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #595959;
+}
+
+/* Контейнер для поискового поля */
+.search-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.search-input {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Контейнер для карточек пользователей */
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Стили для карточки пользователя */
+.user-card {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  /* Ширина карточки задаётся примерно так, чтобы 3 карточки помещались на широком экране */
+  width: calc(33.33% - 20px);
+  min-width: 250px;
+}
+
+/* Медиа-запросы для адаптивного дизайна */
+@media screen and (max-width: 768px) {
+  .user-card {
+    width: calc(50% - 20px);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .user-card {
+    width: 100%;
+  }
+}
