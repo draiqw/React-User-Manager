@@ -36,6 +36,11 @@ const LoginPage = () => {
       const data = await loginUser(email, password);
       if (data.length > 0) {
         localStorage.setItem('user', JSON.stringify(data[0]));
+        
+        // setTimeout(() => {
+        //   navigate('/');
+        // }, 3000);
+
         navigate('/');
       } else {
         setMessage('Wrong email or password.');

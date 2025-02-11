@@ -4,67 +4,57 @@
       "id": "ee47",
       "name": "Роман",
       "email": "1@gmail.com",
-      "password": "123"
+      "password": "123",
+      "phone": "123123123"
     },
     {
       "id": "bccb",
       "name": "Артем",
       "email": "2@gmail.com",
-      "password": "123"
+      "password": "123",
+      "phone": "123123123"
     },
     {
       "id": "e51a",
       "name": "dfasdf",
       "email": "fasfsa@gmail.com",
-      "password": "dsadsadsadsa"
+      "password": "dsadsadsadsa",
+      "phone": "123123123"
     },
     {
       "id": "ea29",
       "name": "12312",
       "email": "3123123312312@gmail.com",
-      "password": "dasdasdsadasdas"
+      "password": "dasdasdsadasdas",
+      "phone": "123123123"
     },
     {
       "id": "4d3b",
       "name": "12312",
       "email": "gosha@gmail.com",
-      "password": "123456"
+      "password": "123456",
+      "phone": "123123123"
     },
     {
-      "id": "ee312347",
-      "name": "Роман",
-      "email": "1@gmail.com",
-      "password": "123"
+      "id": "ab13",
+      "name": "drozd",
+      "email": "drozd@gmail.com",
+      "password": "123456",
+      "phone": "89191430134"
     },
     {
-      "id": "ee43127",
-      "name": "Роман",
-      "email": "1@gmail.com",
-      "password": "123"
+      "id": "12cb",
+      "name": "draiqws",
+      "email": "123@gmail.com",
+      "password": "123456",
+      "phone": ""
     },
     {
-      "id": "ee43127",
-      "name": "Роман",
-      "email": "1@gmail.com",
-      "password": "123"
-    },
-    {
-      "id": "ee487",
-      "name": "Роман",
-      "email": "1@gmail.com",
-      "password": "123"
-    },
-    {
-      "id": "ee4312",
-      "name": "Роман",
-      "email": "1@gmail.com",
-      "password": "123"
-    },
-    {
-      "id": "ee478",
-      "name": "Роман",
-      "email": "1@gmail.com",
-      "password": "123"
+      "id": "358e",
+      "name": "dima",
+      "email": "dima@gmail.com",
+      "password": "123456",
+      "phone": "123456789"
     }
   ],
   "posts": [
