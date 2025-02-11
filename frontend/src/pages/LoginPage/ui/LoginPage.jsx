@@ -41,7 +41,7 @@ const LoginPage = () => {
         //   navigate('/');
         // }, 3000);
 
-        navigate('/');
+        navigate('/home');
       } else {
         setMessage('Wrong email or password.');
       }

@@ -5,68 +5,18 @@
       "name": "Роман",
       "email": "1@gmail.com",
       "password": "123",
-      "phone": "123123123"
+      "phone": "12312312312312"
     },
     {
       "id": "bccb",
       "name": "Артем",
       "email": "2@gmail.com",
-      "password": "123",
-      "phone": "123123123"
-    },
-    {
-      "id": "e51a",
-      "name": "dfasdf",
-      "email": "fasfsa@gmail.com",
-      "password": "dsadsadsadsa",
-      "phone": "123123123"
-    },
-    {
-      "id": "ea29",
-      "name": "12312",
-      "email": "3123123312312@gmail.com",
-      "password": "dasdasdsadasdas",
-      "phone": "123123123"
-    },
-    {
-      "id": "4d3b",
-      "name": "12312",
-      "email": "gosha@gmail.com",
-      "password": "123456",
-      "phone": "123123123"
-    },
-    {
-      "id": "ab13",
-      "name": "drozd",
-      "email": "drozd@gmail.com",
-      "password": "123456",
-      "phone": "89191430134"
-    },
-    {
-      "id": "12cb",
-      "name": "draiqws",
-      "email": "123@gmail.com",
-      "password": "123456",
-      "phone": ""
-    },
-    {
-      "id": "358e",
-      "name": "dima",
-      "email": "dima@gmail.com",
-      "password": "123456",
-      "phone": "5789623458043605123122345"
-    },
-    {
-      "id": "e354",
-      "name": "123",
-      "email": "g@gmail.com",
-      "password": "123456",
-      "phone": ""
+      "password": "123"
     }
   ],
   "posts": [
     {
-      "id": "1",
+      "id": 1,
       "title": "Hello World",
       "content": "Пример поста"
     }
