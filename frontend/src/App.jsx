@@ -33,7 +33,7 @@ const App = () => {
           <Route path="/register" element={<RegistrationPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/users" element={<UserListPage />} />
-          <Route path="/" element={<HomePage />} />
+          <Route path="/home" element={<HomePage />} />
           {/* Fallback route */}
           <Route path="*" element={<Navigate to="/login" />} />
         </Routes>
