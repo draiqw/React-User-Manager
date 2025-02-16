@@ -1,0 +1,231 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+  
+  @font-face {
+    font-family: "AK";
+    src: url('../../../assets/Sansation_Light.ttf');
+  }
+  
+  .body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: #C6C6C6;
+  }
+  
+  /* Основной контейнер формы регистрации */
+  .registration-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 42vw;
+    height: 50vh;
+    background-color: #D9D9D9;
+    border-radius: 35px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.25),
+                inset 10px 10px 10px rgba(255, 255, 255, 0.25);
+  }
+  
+  /* Заголовок формы */
+  .form-title {
+    font-size: 4.5vh;
+    margin-top: 0;
+    margin-bottom: 3vh;
+    font-family: "AK";
+    font-weight: bold;
+    text-align: center;
+    color: #595959;
+  }
+  
+  /* Группа полей формы */
+  .form-group {
+    margin-bottom: 3vh;
+  }
+  
+  /* Поля ввода */
+  .form-group input {
+    background-color: #E8E8E8;
+    width: 25vw;
+    height: 2vh;
+    padding: 1vh 2vh;
+    border: 0;
+    border-radius: 2vh;
+    font-size: 1.5vh;
+    color: #595959;
+    font-family: "AK";
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25),
+                inset 5px 5px 5px rgba(255, 255, 255, 0.25);
+  }
+  
+  /* Текст-подсказка */
+  .form-group input::placeholder {
+    color: #595959;
+    font-family: "AK";
+    font-size: 1.5vh;
+  }
+  
+  .form-group input:focus {
+    outline: none;
+  }
+  
+  /* Стили для невалидных полей */
+  .registration-form .form-control.is-invalid {
+    border-color: #dc3545;
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25),
+                5px 5px 5px rgba(0, 0, 0, 0.25),
+                inset 5px 5px 5px rgba(255, 255, 255, 0.25);
+  }
+  
+  .registration-form .invalid-feedback {
+    margin-top: 0.5vh;
+    margin-bottom: -1vh;
+    font-size: 1vh;
+    color: black;
+    font-family: "AK";
+    display: flex;
+    justify-content: center;
+  }
+  
+  /* Группа кнопок */
+  .button-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 24vw;
+  }
+  
+  .Hidden {
+    visibility: hidden;
+  }
+  
+  .login-btn {
+    background-color: #D9D9D9;
+    border: none;
+    color: #595959;
+    font-family: "AK";
+    font-size: 1.5vh;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    margin-left: min(10px, 1vw);
+  }
+  
+  .login-btn:hover {
+    color: black;
+  }
+  
+  .register-btn {
+    width: 15vw;
+    padding: 10px;
+    background-color: #E8E8E8;
+    border: none;
+    border-radius: 2vh;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+    color: #595959;
+    font-family: "AK";
+    font-size: 2.5vh;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25),
+                inset 5px 5px 5px rgba(255, 255, 255, 0.25);
+  }
+  
+  .register-btn:hover {
+    background-color: #595959;
+    color: #E8E8E8;
+  }
+  
+  .custom-alert {
+    font-size: 2vh;
+    margin-top: 2vh;
+    font-family: "AK";
+    color: #595959;
+    padding: 20px;
+    border-radius: 8px;
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  /* Адаптивные стили */
+  
+  /* Для экранов до 1024px */
+  @media screen and (max-width: 1024px) {
+    .registration-form {
+      width: 60vw;
+      height: auto;
+      padding: 20px;
+    }
+    .form-group input {
+      width: 40vw;
+      font-size: 1.8vh;
+    }
+    .button-group {
+      width: 30vw;
+    }
+    .register-btn, .login-btn {
+      width: 20vw;
+      font-size: 2vh;
+    }
+  }
+  
+  /* Для экранов до 768px */
+  @media screen and (max-width: 768px) {
+    .registration-form {
+      width: 80vw;
+      height: auto;
+      padding: 20px;
+    }
+    .form-title {
+      font-size: 4vh;
+    }
+    .form-group input {
+      width: 70vw;
+      font-size: 2vh;
+      padding: 1.5vh 2vh;
+    }
+    .button-group {
+      width: 80vw;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .register-btn, .login-btn {
+      width: 50vw;
+      font-size: 2.5vh;
+    }
+    .custom-alert {
+      font-size: 2vh;
+      padding: 15px;
+    }
+  }
+  
+  /* Для экранов до 480px */
+  @media screen and (max-width: 480px) {
+    .registration-form {
+      width: 80vw;
+      height: auto;
+      padding: 15px;
+    }
+    .form-title {
+      font-size: 3.5vh;
+    }
+    .form-group input {
+      width: 70vw;
+      font-size: 2vh;
+    }
+    .button-group {
+      width: 90vw;
+    }
+    .register-btn, .login-btn {
+      width: 30vw;
+      font-size: 2.2vh;
+    }
+    .custom-alert {
+      font-size: 2vh;
+      padding: 15px;
+    }
+  }
+  

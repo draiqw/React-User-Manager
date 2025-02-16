@@ -1,11 +1,11 @@
 import React, { Suspense, lazy, useState, useEffect } from 'react';
-import { Routes, Route, Link, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import { RegistrationPage } from './pages/RegistrationPage';
+import { LoginPage } from './pages/LoginPage';
+import { HomePage } from './pages/HomePage';
+import { UserListPage } from './pages/UserListPage';
 
-const LoginPage = lazy(() => import('./pages/LoginPage/LoginPage'));
 const Loading = lazy(() => import('./components/Loading/Loading'));
-const UsersList = lazy(() => import('./pages/UserListPage/UserListPage'));
-const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
-const RegistrationPage = lazy(() => import('./pages/RegistrationPage/RegistrationPage'));
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -14,6 +14,14 @@ const App = () => {
     setLoading(false);
   }, []);
 
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     setLoading(false);
+  //   }, 2000);
+
+  //   return () => clearTimeout(timer);
+  // }, []);
+
   if (loading) {
     return <Loading />;
   }
@@ -21,14 +29,11 @@ const App = () => {
   return (
     <>
       <Suspense fallback={<Loading />}>
-        <nav>
-          <Link to="/register">Регистрация</Link> | <Link to="/login">Вход</Link>
-        </nav>
         <Routes>
           <Route path="/register" element={<RegistrationPage />} />
           <Route path="/login" element={<LoginPage />} />
-          <Route path="/users" element={<UsersList />} />
-          <Route path="/" element={<HomePage />} />
+          <Route path="/users" element={<UserListPage />} />
+          <Route path="/home" element={<HomePage />} />
           {/* Fallback route */}
           <Route path="*" element={<Navigate to="/login" />} />
         </Routes>

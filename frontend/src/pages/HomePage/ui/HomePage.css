@@ -1,0 +1,142 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: "AK", sans-serif;
+  background-color: #f2f2f2;
+}
+
+.home-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+  background: linear-gradient(135deg, #C6C6C6, #EAEAEA);
+}
+
+.home-container {
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  width: 90%;
+  max-width: 600px;
+  margin: 20px;
+}
+
+.profile-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.profile-form {
+  width: 100%;
+}
+
+.profile-form .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.profile-form .form-control {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.profile-form .form-control:focus {
+  border-color: #595959;
+  box-shadow: 0 0 5px rgba(89, 89, 89, 0.2);
+  outline: none;
+}
+
+.update-btn {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1.25rem;
+  background-color: #E8E8E8;
+  border: none;
+  border-radius: 8px;
+  color: #595959;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.update-btn:hover {
+  background-color: #595959;
+  color: #ffffff;
+}
+
+.view-users-btn {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1.25rem;
+  background-color: #E8E8E8;
+  border: none;
+  border-radius: 8px;
+  color: #595959;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  margin-top: 1.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.view-users-btn:hover {
+  background-color: #595959;
+  color: #ffffff;
+}
+
+.custom-alert {
+  font-size: 1rem;
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: #f0f0f0;
+  color: #595959;
+  text-align: center;
+  transition: opacity 0.3s ease-in-out;
+}
+
+@media screen and (max-width: 768px) {
+  .home-container {
+    padding: 20px;
+    width: 95%;
+  }
+  .profile-title {
+    font-size: 1.75rem;
+  }
+  .update-btn, 
+  .view-users-btn {
+    font-size: 1rem;
+    padding: 0.75rem;
+  }
+  .custom-alert {
+    font-size: 0.9rem;
+    padding: 0.75rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .home-container {
+    padding: 15px;
+  }
+  .profile-title {
+    font-size: 1.5rem;
+  }
+  .update-btn, 
+  .view-users-btn {
+    font-size: 0.9rem;
+    padding: 0.65rem;
+  }
+  .custom-alert {
+    font-size: 0.9rem;
+    padding: 0.75rem;
+  }
+}
