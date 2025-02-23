@@ -51,21 +51,32 @@ const RegistrationForm = () => {
 
   const handleRegistration = async (e) => {
     e.preventDefault();
-
-    if (!validate()) {
-      return;
-    }
-
-    const result = await registerUser(name, email, password);
-    setMessage(result.message);
-
-    if (result.success) {
-      setName('');
-      setEmail('');
-      setPassword('');
-      setErrors({ name: '', email: '', password: '' });
+  
+    if (!validate()) return;
+  
+    const userData = {
+      email,
+      password,
+      fio: name,          // поле "fio" соответствует схеме
+      phone: "",          // пустая строка, если телефон не указан
+      workshop_ids: [0],  // замените при наличии актуальных данных
+      role: "user"
+    };
+  
+    try {
+      const result = await registerUser(userData);
+      setMessage(result.message);
+      if (result.success) {
+        setName('');
+        setEmail('');
+        setPassword('');
+        setErrors({ name: '', email: '', password: '' });
+      }
+    } catch (error) {
+      setMessage('Ошибка регистрации. Проверьте данные и повторите попытку.');
     }
   };
+  
 
   return (
     <div className="body">

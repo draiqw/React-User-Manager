@@ -12,11 +12,25 @@
       "name": "Артем",
       "email": "2@gmail.com",
       "password": "123"
+    },
+    {
+      "id": "62b5",
+      "name": "draiqws",
+      "email": "draiqws@gmail.com1",
+      "password": "123456",
+      "phone": "89191430134"
+    },
+    {
+      "id": "c187",
+      "name": "ruslan",
+      "email": "rus@gmail.com",
+      "password": "123456",
+      "phone": ""
     }
   ],
   "posts": [
     {
-      "id": 1,
+      "id": "1",
       "title": "Hello World",
       "content": "Пример поста"
     }
