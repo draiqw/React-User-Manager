@@ -107,7 +107,7 @@ const UserListPage = () => {
         </div>
       </div>
 
-      {/* Пагинация: при желании можно добавить кнопки «следующая/предыдущая страница», выбор pageSize и т.д. */}
+      {/* Пагинация */}
       <div className="pagination-container">
         <label>Страница: </label>
         <input
@@ -129,19 +129,42 @@ const UserListPage = () => {
         />
       </div>
 
-      {loading && <p>Загрузка...</p>}
-      {error && <p>{error}</p>}
-      {!loading && message && <p>{message}</p>}
+      {/* Спиннер при загрузке */}
+      {loading && (
+        <div className="spinner-container">
+          <div className="loader"></div>
+          <p>Загрузка...</p>
+        </div>
+      )}
 
-      <div className="cards-container">
-        {users.map(user => (
-          <div key={user.id} className="user-card">
-            <h3>{user.fio}</h3>
-            <p>Email: {user.email}</p>
-            <p>Телефон: {user.phone}</p>
-          </div>
-        ))}
-      </div>
+      {/* Блок ошибки */}
+      {error && (
+        <div className="message-container error-message">
+          <div className="message-icon">!</div>
+          <p className="message-text">{error}</p>
+        </div>
+      )}
+
+      {/* Блок "нет данных" */}
+      {!loading && message && (
+        <div className="message-container no-data-message">
+          <div className="message-icon">?</div>
+          <p className="message-text">{message}</p>
+        </div>
+      )}
+
+      {/* Список пользователей – показываем только если нет ошибки */}
+      {!loading && !error && (
+        <div className="cards-container">
+          {users.map(user => (
+            <div key={user.id} className="user-card">
+              <h3>{user.fio}</h3>
+              <p>Email: {user.email}</p>
+              <p>Телефон: {user.phone}</p>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
