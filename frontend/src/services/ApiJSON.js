@@ -1,55 +1,81 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:3001';
+// Базовый URL API
+const API_URL = 'http://212.41.9.231:8001/api';
 
-export const getUsers = async () => {
+/**
+ * Получение списка пользователей с фильтрацией и пагинацией.
+ * Параметры (все query-параметры необязательны):
+ * - query:    строка поиска по ФИО (string)
+ * - role:     фильтр по роли (string)
+ * - workshop_id: фильтр по цеху (integer)
+ * - page:     номер страницы (integer, минимум 1)
+ * - page_size: количество элементов на странице (integer, минимум -1, максимум 100)
+ */
+export const getUsers = async (filters = {}) => {
   try {
-    const response = await axios.get(`${API_URL}/users`);
-    return response.data;
-  } 
-  catch (error) {
+    // Пример filters: { query: '', role: '', workshop_id: '', page: 1, page_size: -1 }
+    const response = await axios.get(`${API_URL}/users`, { params: filters });
+    // Извлекаем массив пользователей из свойства "values" ответа
+    return response.data.values || [];
+  } catch (error) {
     console.error('Ошибка при получении пользователей:', error);
     throw error;
   }
 };
 
 
+// Другие методы (аутентификация, регистрация, обновление, удаление) остаются без изменений...
+
+
+// Аутентификация пользователя
 export const loginUser = async (email, password) => {
   try {
-    const response = await axios.get(`${API_URL}/users?email=${email}&password=${password}`);
+    const response = await axios.post(
+      `${API_URL}/auth`,
+      { email, password },
+      { headers: { 'Content-Type': 'application/json' } }
+    );
     return response.data;
-  } 
-  catch (error) {
-    console.error('Ошибка при выполнении запроса на логин:', error);
+  } catch (error) {
+    console.error('Ошибка при аутентификации пользователя:', error);
     throw error;
   }
 };
 
-
-export const registerUser = async (name, email, password) => {
+// Регистрация нового пользователя
+export const registerUser = async (userData) => {
   try {
-    const checkResponse = await axios.get(`${API_URL}/users?email=${email}`);
-    if (checkResponse.data.length > 0) {
-      return { success: false, message: 'Пользователь с таким email уже существует.' };
-    }
-
-    const newUser = {name, email, password , "phone": ""};
-    await axios.post(`${API_URL}/users`, newUser);
-
-    return { success: true, message: 'Регистрация прошла успешно!' };
-  } 
-  catch (error) {
-    console.error('Ошибка регистрации:', error);
-    return { success: false, message: 'Ошибка регистрации.' };
+    const response = await axios.post(`${API_URL}/users`, userData, {
+      headers: { 'Content-Type': 'application/json' },
+    });
+    return response.data;
+  } catch (error) {
+    console.error('Ошибка при регистрации пользователя:', error);
+    throw error;
   }
 };
 
+// Обновление данных пользователя
 export const updateUser = async (id, updatedUserData) => {
   try {
-    const response = await axios.put(`${API_URL}/users/${id}`, updatedUserData);
+    const response = await axios.put(`${API_URL}/users/${id}`, updatedUserData, {
+      headers: { 'Content-Type': 'application/json' },
+    });
     return response.data;
   } catch (error) {
-    console.error('Ошибка обновления пользователя:', error);
+    console.error('Ошибка при обновлении данных пользователя:', error);
+    throw error;
+  }
+};
+
+// Удаление пользователя (если поддерживается API)
+export const deleteUser = async (id) => {
+  try {
+    const response = await axios.delete(`${API_URL}/users/${id}`);
+    return response.data;
+  } catch (error) {
+    console.error('Ошибка при удалении пользователя:', error);
     throw error;
   }
 };

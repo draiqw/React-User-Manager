@@ -56,7 +56,6 @@ const LoginPage = () => {
       {/* Отключаем стандартную валидацию браузера */}
       <Form noValidate onSubmit={handleLogin} className="login-form">
         <h2 className="form-title">AUTHENTICATION</h2>
-        
         <Form.Group controlId="formEmail" className="form-group">
           <Form.Control
             type="email"
