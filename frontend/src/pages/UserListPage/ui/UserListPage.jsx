@@ -5,12 +5,11 @@ import './UserListPage.css';
 const UserListPage = () => {
   const [users, setUsers] = useState([]);
   
-  // Фильтры
-  const [searchQuery, setSearchQuery] = useState('');       // Поиск по ФИО
-  const [role, setRole] = useState('');                     // Фильтр по роли
-  const [workshopId, setWorkshopId] = useState('');         // Фильтр по цеху
+  const [searchQuery, setSearchQuery] = useState('');       // по ФИО
+  const [role, setRole] = useState('');                     // по роли
+  const [workshopId, setWorkshopId] = useState('');         // по цеху
 
-  // Параметры пагинации (дефолтные значения – первая страница, -1 для вывода всех)
+  // Параметры пагинации (-1 для всех)
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(-1);
 
@@ -23,7 +22,6 @@ const UserListPage = () => {
     setError(null);
 
     try {
-      // Собираем объект фильтров
       const filters = {
         query: searchQuery,
         role: role || undefined,
@@ -41,30 +39,24 @@ const UserListPage = () => {
     }
   };
 
-  // Загружаем пользователей при первом рендере и при изменении любого из фильтров
   useEffect(() => {
     loadUsers();
   }, [searchQuery, role, workshopId, page, pageSize]);
 
-  // Формирование сообщений об отсутствии данных
   let message = '';
   if (!loading && users.length === 0) {
-    // Если есть хотя бы один фильтр или строка поиска, выводим «Ничего не найдено»
-    // Иначе – «Нет пользователей»
     message = (searchQuery || role || workshopId) ? 'Ничего не найдено' : 'Нет пользователей';
   }
 
   // Обработчики ввода для фильтров
   const handleSearchChange = (e) => {
     setSearchQuery(e.target.value);
-    setPage(1); // При изменении запроса сбрасываем страницу на 1
+    setPage(1);
   };
-
   const handleRoleChange = (e) => {
     setRole(e.target.value);
     setPage(1);
   };
-
   const handleWorkshopChange = (e) => {
     setWorkshopId(e.target.value);
     setPage(1);
@@ -74,7 +66,6 @@ const UserListPage = () => {
     <div className="user-list-page">
       <h1 className="page-title">Список пользователей</h1>
       
-      {/* Блок фильтров */}
       <div className="filters-container">
         <div className="filter-item">
           <label>Поиск по ФИО</label>
@@ -107,7 +98,6 @@ const UserListPage = () => {
         </div>
       </div>
 
-      {/* Пагинация */}
       <div className="pagination-container">
         <label>Страница: </label>
         <input
@@ -129,7 +119,6 @@ const UserListPage = () => {
         />
       </div>
 
-      {/* Спиннер при загрузке */}
       {loading && (
         <div className="spinner-container">
           <div className="loader"></div>
@@ -137,7 +126,6 @@ const UserListPage = () => {
         </div>
       )}
 
-      {/* Блок ошибки */}
       {error && (
         <div className="message-container error-message">
           <div className="message-icon">!</div>
@@ -145,7 +133,6 @@ const UserListPage = () => {
         </div>
       )}
 
-      {/* Блок "нет данных" */}
       {!loading && message && (
         <div className="message-container no-data-message">
           <div className="message-icon">?</div>
@@ -153,7 +140,6 @@ const UserListPage = () => {
         </div>
       )}
 
-      {/* Список пользователей – показываем только если нет ошибки */}
       {!loading && !error && (
         <div className="cards-container">
           {users.map(user => (
