@@ -1,47 +1,31 @@
-import React, { useState, useEffect } from 'react';
-import { getUsers } from '../../../services/ApiJSON';
+import React, { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { getUsers } from '../../../slices/usersSlice';
 import './UserListPage.css';
 
 const UserListPage = () => {
-  const [users, setUsers] = useState([]);
-  
-  const [searchQuery, setSearchQuery] = useState('');       // по ФИО
-  const [role, setRole] = useState('');                     // по роли
-  const [workshopId, setWorkshopId] = useState('');         // по цеху
+  const dispatch = useDispatch();
 
-  // Параметры пагинации (-1 для всех)
+  const { list: users, loading, error } = useSelector(state => state.users);
+
+  const [searchQuery, setSearchQuery] = useState('');
+  const [role, setRole] = useState('');
+  const [workshopId, setWorkshopId] = useState('');
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(-1);
 
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-
-  // Функция для загрузки пользователей с учетом текущих фильтров
-  const loadUsers = async () => {
-    setLoading(true);
-    setError(null);
-
-    try {
-      const filters = {
-        query: searchQuery,
-        role: role || undefined,
-        workshop_id: workshopId || undefined,
-        page: page,
-        page_size: pageSize,
-      };
-
-      const data = await getUsers(filters);
-      setUsers(data);
-    } catch (err) {
-      setError('Ошибка при загрузке данных');
-    } finally {
-      setLoading(false);
-    }
-  };
 
   useEffect(() => {
-    loadUsers();
-  }, [searchQuery, role, workshopId, page, pageSize]);
+    const filters = {
+      query: searchQuery,
+      role: role || undefined,
+      workshop_id: workshopId || undefined,
+      page,
+      page_size: pageSize,
+    };
+
+    dispatch(getUsers(filters));
+  }, [dispatch, searchQuery, role, workshopId, page, pageSize]);
 
   let message = '';
   if (!loading && users.length === 0) {
@@ -65,7 +49,7 @@ const UserListPage = () => {
   return (
     <div className="user-list-page">
       <h1 className="page-title">Список пользователей</h1>
-      
+
       <div className="filters-container">
         <div className="filter-item">
           <label>Поиск по ФИО</label>
@@ -76,7 +60,6 @@ const UserListPage = () => {
             onChange={handleSearchChange}
           />
         </div>
-
         <div className="filter-item">
           <label>Роль</label>
           <input
@@ -86,7 +69,6 @@ const UserListPage = () => {
             onChange={handleRoleChange}
           />
         </div>
-
         <div className="filter-item">
           <label>Цех (workshop_id)</label>
           <input
@@ -97,7 +79,7 @@ const UserListPage = () => {
           />
         </div>
       </div>
-
+      
       <div className="pagination-container">
         <label>Страница: </label>
         <input
@@ -105,9 +87,7 @@ const UserListPage = () => {
           min="1"
           value={page}
           onChange={(e) => setPage(e.target.value ? parseInt(e.target.value, 10) : 1)}
-          style={{ width: '60px' }}
         />
-
         <label>Количество на странице: </label>
         <input
           type="number"
@@ -115,7 +95,6 @@ const UserListPage = () => {
           max="100"
           value={pageSize}
           onChange={(e) => setPageSize(e.target.value ? parseInt(e.target.value, 10) : -1)}
-          style={{ width: '60px' }}
         />
       </div>
 
@@ -125,14 +104,12 @@ const UserListPage = () => {
           <p>Загрузка...</p>
         </div>
       )}
-
       {error && (
         <div className="message-container error-message">
           <div className="message-icon">!</div>
           <p className="message-text">{error}</p>
         </div>
       )}
-
       {!loading && message && (
         <div className="message-container no-data-message">
           <div className="message-icon">?</div>
